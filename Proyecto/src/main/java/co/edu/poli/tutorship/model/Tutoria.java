@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -23,8 +24,8 @@ public class Tutoria {
 	@Column(name="detalles")
 	private String detalles;
 	
-	@OneToOne
-	@JoinColumn(name="ubicacion_cod", unique=true)
+	@ManyToOne
+	@JoinColumn(name="ubicacion_cod")
 	private Ubicacion ubicaciones;
 	
 	public Tutoria(){
