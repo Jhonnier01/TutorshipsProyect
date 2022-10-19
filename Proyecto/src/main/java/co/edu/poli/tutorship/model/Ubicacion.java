@@ -1,8 +1,12 @@
 package co.edu.poli.tutorship.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -22,9 +26,9 @@ public class Ubicacion {
 	@Column(name="detalles")
 	private String detalles;
 	
-	@OneToOne(mappedBy = "ubicaciones")
+	@OneToMany(mappedBy = "ubicaciones",cascade=CascadeType.ALL)
 	@JsonIgnore
-	private Tutoria tutoria;
+	private Set<Tutoria> tutoria;
 	
 	public Ubicacion() {
 	}
